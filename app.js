@@ -80,3 +80,16 @@ async function generateMap() {
         map.fitBounds(bounds);
     }
 }
+
+// Clear the map and input field
+function clearMap() {
+    // Clear the locations input field
+    document.getElementById('locations').value = '';
+
+    // Remove all layers except for the base map
+    map.eachLayer(layer => {
+        if (layer instanceof L.TileLayer === false) {
+            map.removeLayer(layer);
+        }
+    });
+}
